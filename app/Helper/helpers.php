@@ -1,7 +1,7 @@
 <?php
 
 if (!function_exists('Resize')) {
-    function Resize($data)
+    function Resize($data = [])
     {
         return response([
             'code' => '200',

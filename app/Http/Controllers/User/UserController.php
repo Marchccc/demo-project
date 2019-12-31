@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\User;
 
+use App\Events\PayEvent;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\Interfaces\UserRepositoryInterface;
@@ -17,6 +18,13 @@ class UserController extends Controller
         $this->user = $UserRepository;
     }
 
+    /**
+     * 获取用户列表.
+     *
+     * @param Request $request [$request description]
+     *
+     * @return [type] [return description]
+     */
     public function list(Request $request)
     {
         // 获取用户列表
@@ -33,6 +41,31 @@ class UserController extends Controller
                     "name": "user1"
                 }
             ]
+        }
+        */
+    }
+
+    /**
+     * 支付回调.
+     *
+     * @param Request $request
+     *
+     * @return json
+     */
+    public function payCallback(Request $request)
+    {
+        // ..业务逻辑
+
+        // event
+        $order = [];
+        event(new PayEvent($order));
+
+        return Resize();
+        /*
+        {
+            "code": "200",
+            "message": "success",
+            "data": []
         }
         */
     }
