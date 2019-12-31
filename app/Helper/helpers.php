@@ -1,11 +1,11 @@
 <?php
 
 if (!function_exists('Resize')) {
-    function Resize($data = [])
+    function Resize($data = [], $code = 200, $message = 'success')
     {
         return response([
-            'code' => '200',
-            'message' => 'success',
+            'code' => $code,
+            'message' => $message,
             'data' => $data,
         ]);
     }

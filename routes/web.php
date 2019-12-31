@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/productList', 'Porduct\ProductController@list');
-Route::get('/userList', 'User\UserController@list');
+Route::get('/userList', 'User\UserController@list')->middleware(['user.verifie']);
 Route::get('/payCallback', 'User\UserController@payCallback');
